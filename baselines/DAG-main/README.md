@@ -20,5 +20,10 @@ $ source ./scripts.sh
 ``` 
 The hyper-parameters used for different datasets are shown in this script.
 
+## Time Cost Collection
 In this implement, the processing time cost does not include the time cost for run gSpan and the time cost for geting the GNN scores of each subgraph. 
 Please add these two time cost after running them, as we did in our experiments.
+```shell script
+$ Total time cost of DAG  = T(gspan) + T(GNN) + T(pipline)
+```
+where T denote the time cost
