@@ -64,7 +64,7 @@ def main():
     explainer = DAG(dataset=dataset, modelname=modelname, lambdas=lambdas)
     print("candidate {}".format(explainer.candidate))
 
-    # 解释得到的candidate是什么样的呢？
+    # 
     n_candidate = len([x for x in explainer.candidate if x[1]==target_class])
     print(n_candidate)
     if n_candidate==0:
@@ -75,7 +75,7 @@ def main():
     print('Explaining '+dataset+', '+prog_args.gnn+' model.')
 
     #### for repeating test
-    # 为什么是单独repeat test？
+
     repeat = int(prog_args.num_runs)
     start = time.time()
     _, output = explainer.repeatExplain(k, repeat, target_class=target_class, save=prog_args.save)

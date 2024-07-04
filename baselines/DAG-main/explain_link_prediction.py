@@ -36,18 +36,18 @@ class DAG:
         self.gSpan_output_file = 'data/'+self.dataset+'/gSpan_output.txt'
         self.gnn_score_file = 'data/'+self.dataset+'/'+self.modelname+'/gspan/eval.csv'
 
-        # 直接调用，读取数据
-        self.true_label = self.getTrueLabel() # 确定不同的class内容，真实的label
-        self.n_total_inst = len(self.true_label[0] + self.true_label[1]) # 不同class的数目总和
-        self.where =self.getWhere() # gspan出来的结果中，不同subgraph有哪几个instance有
+        # 
+        self.true_label = self.getTrueLabel() #
+        self.n_total_inst = len(self.true_label[0] + self.true_label[1]) # 
+        self.where =self.getWhere() # 
         self.n_subgraph = len(self.where)
-        self.score, self.size_dict = self.getGNNscore() # 每个pattern出来的GNN结果
-        self.diver_dic =self.getDiverDic() # 每个pattern有多少个点和边吗？
+        self.score, self.size_dict = self.getGNNscore() # 
+        self.diver_dic =self.getDiverDic() # 
         # self.Lambda = Lambda
         # self.Lambda = np.array([lambdas[0], lambdas[1],lambdas[2], 0, 0, 0, lambdas[-1]],dtype=np.int64)
         self.Lambda = np.array([lambdas[0], lambdas[1],lambdas[2], 0, 0, 0, lambdas[-1]])
-        self.candidate = self.getCandidate()  # 为什么需要和score扯上关系呢？
-        self.distribution = self.getDistribution() # 不同的pattern 拥有的个数？
+        self.candidate = self.getCandidate()  # 
+        self.distribution = self.getDistribution() # 
 
         self.n_class = len(self.true_label)
         self.size_D = self.n_subgraph*self.n_class
