@@ -1,0 +1,1 @@
+export CFLAGS='-std=c++17' CC=g++ CXX=g++
